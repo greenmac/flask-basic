@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+{{ super() }}
+<script>var a=99;</script>
+{% block content %}
+    <!--action的部份以url_for('function name')設置，function name為該路由所裝飾器函數名稱-->
+    <form method='post' action={{ url_for('login_check') }}> 
+        <p>帳號:<input type='text' name='username'/></p>
+        <p>密碼:<input type='text' name='password'/></p>
+        <p><button type='submit'>Submit</button></p>    
+    </form>
+{% endblock content %}
