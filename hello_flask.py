@@ -41,13 +41,11 @@ def login():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        return redirect(url_for('hello', username=json.loads(request.get_data('username'))))
+        return redirect(url_for('hello', username=request.form.get('username')))
     return render_template('login.html')
         
 def login_check(username, password):
     """登入帳號密碼檢核"""
-    username = json.loads(request.get_data())['username']
-    password = json.loads(request.get_data())['password']
     if username == 'admin' and password == 'hello':
         return True
     else:
